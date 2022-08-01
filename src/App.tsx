@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { CartProvider } from "./Providers/Cart.Provider";
+import { EventsProvider } from "./Providers/Events.Provider";
+import { SearchProvider } from "./Providers/Search.Provider";
+import Home from "./screens/Home";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <EventsProvider>
+        <SearchProvider>
+          <CartProvider>
+            <Home />
+          </CartProvider>
+        </SearchProvider>
+      </EventsProvider>
     </div>
   );
 }
